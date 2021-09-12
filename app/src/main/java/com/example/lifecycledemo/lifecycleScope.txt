@@ -1,0 +1,11 @@
+LifecycleScope
+lifecycleScope각 Lifecycle 객체에서 정의된다.
+lifecycle이 파괴되면 이 scope는 취소된다.
+
+lifecycle.coroutineScope 또는 lifecycleOwner.lifecycleScope를 통해서 CoroutineScope의 Lifecycle에 접근할 수 있다.
+lifecycle이 종료되면 모든 코루틴이 종료되기 때문에
+Activity에서 onDestroy()가 실행되면 코루틴이 다 종료된다.
+Fragment안에서는 Fragment의 onDestroy()가 실행되면 종료된다.
+
+그래서 Job 인스턴스를 만들어서 Scope의 context에 넣어줄 필요가 없다.
+
